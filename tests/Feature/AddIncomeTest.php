@@ -1,21 +1,26 @@
 <?php
 namespace Tests\Feature;
 
+use App\Models\Income;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 // final class can not create child code
-class AddIncomeTest extends TestCase
+final class AddIncomeTest extends TestCase
 {
+    use RefreshDatabase;
     public function test_income_and_category_database_save()
     {
         //A - Arrange
         // dummy data that we need to do the test
-
+        $income = Income::factory()->make()->toArray();
 
         //A - Action
+        $response = $this->post('/api/add-income', $income);
 
         //A - Assertion
-//        $this->assertTrue(true);
+        $response->assertStatus(200);
+        $response->assertJson([]);
     }
 
 
