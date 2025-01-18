@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Action\Income\AddIncome;
+use App\Http\Requests\IncomeFormRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class IncomeController extends Controller
 {
-    public function addIncome(): JsonResponse
+    public function addIncome(IncomeFormRequest $request, AddIncome $addIncome): JsonResponse
     {
-        return response()->json([]);
+        $validatedData = $request->validated();
+
+        return response()->json($addIncome($validatedData));
     }
 }

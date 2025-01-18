@@ -20,7 +20,17 @@ final class AddIncomeTest extends TestCase
 
         //A - Assertion
         $response->assertStatus(200);
-        $response->assertJson([]);
+        $response->assertJsonStructure([
+            "message",
+        ]);
+        $response->assertSimilarJson([
+            "message" => "Income added successfully",
+        ]);
+
+        $this->assertDatabaseHas('income',[
+           'income_amount' => $income['income_amount'],
+           'income_category' => $income['income_category'],
+        ]);
     }
 
 
