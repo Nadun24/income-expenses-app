@@ -17,7 +17,8 @@ const AddIncome = () => {
         //destructuring
         const {name, value} = event.target;
 
-
+        setIsIncomeCategoryEmpty(false);
+        setIncomeAmountFieldEmpty(false);
 
         setIncomeDetails( (prevState) => (
             {...prevState,[name]:value}
@@ -29,9 +30,11 @@ const AddIncome = () => {
 
          if(!incomeDetails.income_amount){
              setIncomeAmountFieldEmpty(true)
+             return
          }
          if(!incomeDetails.income_category){
              setIsIncomeCategoryEmpty(true)
+             return
          }
         const response =  await addNewIncome(incomeDetails)
 
