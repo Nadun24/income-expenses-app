@@ -28,7 +28,7 @@ final class AddIncomeTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('income',[
-           'income_amount' => $income['income_amount'],
+           'x' => $income['income_amount'],
            'income_category' => $income['income_category'],
         ]);
     }
