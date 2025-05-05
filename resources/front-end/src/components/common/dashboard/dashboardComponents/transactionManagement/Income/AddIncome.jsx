@@ -3,6 +3,7 @@ import axios from 'axios'
 import { addNewIncome } from '../../../../../../utilities/api/AddIncomeApi/IncomeApi.jsx'
 import FormSuccessAlert from '../../../../alert/FormSuccessAlert.jsx'
 import AddNewIncome from './AddNewIncome.jsx'
+import IncomeListTable from "./IncomeListTable.jsx";
 
 const AddIncome = () => {
     const [incomeDetails, setIncomeDetails] = useState({
@@ -79,7 +80,7 @@ const AddIncome = () => {
                         isIncomeCategoryEmpty={isIncomeCategoryEmpty}
                     />
                 </div>
-                <div>table</div>
+                <IncomeListTable/>
             </div>
         </div>
     )
