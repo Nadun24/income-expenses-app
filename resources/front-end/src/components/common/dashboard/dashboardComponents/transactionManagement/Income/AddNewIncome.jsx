@@ -67,7 +67,7 @@ const AddNewIncome = ({ isModalOpen, handleModalOpenAndClose,message, handleSubm
                                                         handleIncomeDetailsChange
                                                     }
                                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 "
-                                                    placeholder="Type product name"
+                                                    placeholder="Income Amount"
                                                     required=""
                                                 />
                                                 {isIncomeAmountFieldEmpty && (
