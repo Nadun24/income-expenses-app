@@ -40,9 +40,12 @@ const AddIncome = () => {
         }
         const response = await addNewIncome(incomeDetails)
 
+        if( response.status === 200)
+        {
         const { message } = response.data
         setMessage(message)
-        console.log(message)
+            window.location.reload()
+        }
     }
 
     const handleModalOpenAndClose = () => {
