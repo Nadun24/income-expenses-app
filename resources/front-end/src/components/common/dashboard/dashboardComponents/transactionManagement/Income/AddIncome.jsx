@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { addNewIncome } from '../../../../../../utilities/api/AddIncomeApi/IncomeApi.jsx'
+import {
+    addNewIncome,
+    updateIncome
+} from '../../../../../../utilities/api/AddIncomeApi/IncomeApi.jsx'
 import FormSuccessAlert from '../../../../alert/FormSuccessAlert.jsx'
 import AddNewIncome from './AddNewIncome.jsx'
-import IncomeListTable from "./IncomeListTable.jsx";
+import IncomeListTable from './IncomeListTable.jsx'
 
 const AddIncome = () => {
-    const [incomeDetails, setIncomeDetails] = useState({
+    const defaultIncomeDetails = {
         income_amount: 0,
         income_category: ''
-    })
+    }
+    const [incomeDetails, setIncomeDetails] = useState(defaultIncomeDetails)
 
     const [message, setMessage] = useState('')
     const [isIncomeAmountFieldEmpty, setIncomeAmountFieldEmpty] =
         useState(false)
     const [isIncomeCategoryEmpty, setIsIncomeCategoryEmpty] = useState(false)
     const [isModalOpen, setIsModelOpen] = useState(false)
+    const [isEditMode, setIsEditMode] = useState(false)
+    const [editingIncomeId, setEditingIncomeId] = useState(null)
 
     const handleIncomeDetailsChange = event => {
         //destructuring
@@ -38,13 +44,28 @@ const AddIncome = () => {
             setIsIncomeCategoryEmpty(true)
             return
         }
-        const response = await addNewIncome(incomeDetails)
 
-        if( response.status === 200)
-        {
-        const { message } = response.data
-        setMessage(message)
-            window.location.reload()
+        try {
+            let response
+
+            if (isEditMode && editingIncomeId) {
+                response = await updateIncome(editingIncomeId, incomeDetails)
+            } else {
+                response = await addNewIncome(incomeDetails)
+            }
+
+            if (response.status === 200) {
+                const { message } = response.data
+                setMessage(message)
+                setIsModelOpen(false)
+                setIsEditMode(false)
+                setEditingIncomeId(null)
+                setIncomeDetails(defaultIncomeDetails)
+                // window.location.reload()
+            }
+        } catch (error) {
+            console.error('Error adding/updating income:', error)
+            setMessage('Failed to add/update income')
         }
     }
 
@@ -55,6 +76,20 @@ const AddIncome = () => {
         //     setIsModelOpen(true)
         // }
         setIsModelOpen(prevState => !prevState)
+        setMessage('')
+        setIsEditMode(false)
+        setEditingIncomeId(null)
+        setIncomeDetails(defaultIncomeDetails)
+    }
+
+    const handleEditClick = income => {
+        setIncomeDetails({
+            income_amount: income.income_amount,
+            income_category: income.income_category
+        })
+        setEditingIncomeId(income.id)
+        setIsEditMode(true)
+        setIsModelOpen(true)
     }
 
     return (
@@ -81,9 +116,11 @@ const AddIncome = () => {
                         handleIncomeDetailsChange={handleIncomeDetailsChange}
                         isIncomeAmountFieldEmpty={isIncomeAmountFieldEmpty}
                         isIncomeCategoryEmpty={isIncomeCategoryEmpty}
+                        isEditMode={isEditMode}
+                        incomeDetails={incomeDetails}
                     />
                 </div>
-                <IncomeListTable/>
+                <IncomeListTable onEdit={handleEditClick} />
             </div>
         </div>
     )
