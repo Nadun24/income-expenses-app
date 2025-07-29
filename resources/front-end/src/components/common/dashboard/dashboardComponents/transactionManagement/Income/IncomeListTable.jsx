@@ -70,13 +70,13 @@ const IncomeListTable = ({ onEdit }) => {
                                     <td className='px-6 py-4'>
                                         {incomeDetails.income_category}
                                     </td>
-                                    <td className='px-6 py-4'>
+                                    <td className='px-6 py-4 '>
                                         <button
                                             type='button'
                                             onClick={() =>
                                                 onEdit(incomeDetails)
                                             }
-                                            className='focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'
+                                            className='mr-8 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'
                                         >
                                             Edit
                                         </button>
@@ -86,13 +86,23 @@ const IncomeListTable = ({ onEdit }) => {
                                             onClick={() =>
                                                 onDelete(incomeDetails)
                                             }
-                                            className='ml-2 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'
+                                            className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'
                                         >
                                             Delete
                                         </button>
                                     </td>
                                 </tr>
                             ))}
+                        {availableIncomes.length === 0 && (
+                            <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <td
+                                    colSpan='4'
+                                    className='px-6 py-4 text-center text-gray-500'
+                                >
+                                    No income records available.
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>

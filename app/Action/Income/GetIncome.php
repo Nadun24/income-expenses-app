@@ -9,16 +9,15 @@ use Illuminate\Support\Facades\Log;
 
 class GetIncome
 {
-    public function __invoke():array
+    public function __invoke(): array
     {
         $allIncomes = $this->getAllIncomes();
 
-        if($allIncomes->isEmpty()){
-            return CommonResponse::returnNotFoundResponse();
-        }
+        // if($allIncomes->isEmpty()){
+        //     return CommonResponse::returnNotFoundResponse();
+        // }
 
         return CommonResponse::returnSuccessResponse($allIncomes);
-
     }
 
     /**
