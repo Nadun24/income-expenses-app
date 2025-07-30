@@ -10,3 +10,11 @@ export const updateIncome = (incomeId, incomeDetails) => {
         incomeDetails
     )
 }
+
+export const getAllIncomes = () => {
+    return axios.get(`api/getAllIncome`)
+}
+
+export const deleteIncome = incomeId => {
+    return axios.delete(`api/delete-income/${incomeId}`)
+}

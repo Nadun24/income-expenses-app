@@ -25,7 +25,7 @@ const AddNewIncome = ({
                 }
             >
                 <div className='relative  p-4 m-auto w-full max-w-2xl max-h-full'>
-                    <div className='relative bg-white rounded-lg shadow-sm dark:bg-gray-700'>
+                    <div className='relative bg-white  shadow-sm dark:bg-gray-700 border dark:border-gray-600'>
                         <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200'>
                             <h3 className='text-xl font-semibold text-gray-900 dark:text-white'>
                                 {isEditMode ? 'Edit Income' : 'Add New Income'}

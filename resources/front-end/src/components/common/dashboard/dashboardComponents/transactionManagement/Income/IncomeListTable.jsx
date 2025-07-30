@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {
+    deleteIncome,
+    getAllIncomes
+} from '../../../../../../utilities/api/AddIncomeApi/IncomeApi'
 
 const IncomeListTable = ({ onEdit }) => {
     const [availableIncomes, setAvailableIncomes] = useState([])
@@ -10,7 +14,7 @@ const IncomeListTable = ({ onEdit }) => {
 
     const fetchGetAllIncomes = async () => {
         try {
-            const response = await axios.get('api/getAllIncome')
+            const response = await getAllIncomes()
             const { data } = response.data
             setAvailableIncomes(data)
         } catch (error) {
@@ -20,9 +24,7 @@ const IncomeListTable = ({ onEdit }) => {
 
     const onDelete = async details => {
         try {
-            const response = await axios.delete(
-                `api/delete-income/${details.id}`
-            )
+            const response = await deleteIncome(details.id)
             if (response.status === 200) {
                 fetchGetAllIncomes()
             }
