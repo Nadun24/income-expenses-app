@@ -20,12 +20,12 @@ const AddNewIncome = ({
                 aria-hidden='true'
                 className={
                     isModalOpen
-                        ? 'm-9  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0  z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full'
+                        ? 'flex overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm'
                         : 'hidden'
                 }
             >
-                <div className='relative  p-4 m-auto w-full max-w-2xl max-h-full'>
-                    <div className='relative bg-white  shadow-sm dark:bg-gray-700 border dark:border-gray-600'>
+                <div className='relative p-4 w-full max-w-2xl max-h-full'>
+                    <div className='relative bg-white shadow-2xl dark:bg-gray-700 border dark:border-gray-600 rounded-lg'>
                         <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200'>
                             <h3 className='text-xl font-semibold text-gray-900 dark:text-white'>
                                 {isEditMode ? 'Edit Income' : 'Add New Income'}
@@ -45,9 +45,9 @@ const AddNewIncome = ({
                                 >
                                     <path
                                         stroke='currentColor'
-                                        stroke-linecap='round'
-                                        stroke-linejoin='round'
-                                        stroke-width=''
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth='2'
                                         d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
                                     />
                                 </svg>
@@ -55,7 +55,7 @@ const AddNewIncome = ({
                             </button>
                         </div>
 
-                        <div className=' h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800'>
+                        <div className='min-h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800'>
                             <section className='bg-white dark:bg-gray-900'>
                                 <div className='py-1 w-3/4 m-auto lg:py-16'>
                                     <FormSuccessAlert message={message} />
@@ -109,7 +109,7 @@ const AddNewIncome = ({
                                                     }
                                                     className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5  '
                                                 >
-                                                    <option selected=''>
+                                                    <option value=''>
                                                         Select Income Type
                                                     </option>
                                                     <option value='salary'>
@@ -135,7 +135,7 @@ const AddNewIncome = ({
                                         </div>
                                         <button
                                             type='submit'
-                                            className='inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-black'
+                                            className='inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-600 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-700'
                                         >
                                             {isEditMode
                                                 ? 'Update Income'

@@ -1,26 +1,50 @@
-import React from 'react';
+import React from 'react'
 
-const AddExpense = () => {
-    return (
-        <div>
-            <div className="p-4 sm:ml-64">
-                <div className="p-4 ">
-                    <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add Expense</h2>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
+export const AddNewExpense = ({
+    isModalOpen,
+    handleModalOpenAndClose
+}) => {
+  return (
+    <div>
+        
+
+
+<div id="default-modal" tabIndex="-1" aria-hidden="true" className={
+    
+isModalOpen ? 
+"flex overflow-y-auto overflow-x-hidden fixed inset-0 z-50  justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm" : "hidden"
+}>
+    <div className="relative p-4 w-full max-w-2xl max-h-full">
+        <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    Add New Expense
+                </h3>
+                 <button
+                                type='button'
+                                onClick={() => handleModalOpenAndClose()}
+                                className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white'
+                                data-modal-hide='default-modal'
+                            >
+                                <svg
+                                    className='w-3 h-3'
+                                    aria-hidden='true'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 14 14'
+                                >
+                                    <path
+                                        stroke='currentColor'
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth='2'
+                                        d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
+                                    />
                                 </svg>
-                            </p>
-                        </div>
-
-                    </div>
-                    <div className=" h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+                                <span className='sr-only'>Close modal</span>
+                            </button>
+            </div>
+            <div className=" h-48 mb-4 bg-gray-50 dark:bg-gray-800">
                         <section className="bg-white dark:bg-gray-900">
                             <div className="py-1 w-3/4 m-auto lg:py-16">
 
@@ -58,11 +82,12 @@ const AddExpense = () => {
                             </div>
                         </section>
                     </div>
-
-                </div>
-            </div>
+           
         </div>
-    );
-};
+    </div>
+</div>
 
-export default AddExpense;
+
+    </div>
+  )
+}
