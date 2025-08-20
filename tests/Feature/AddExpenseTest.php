@@ -1,6 +1,8 @@
 <?php
 
-
+use App\Models\Expense;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
 
 final class AddExpenseTest extends TestCase
 {
@@ -11,7 +13,6 @@ final class AddExpenseTest extends TestCase
         //A - Arrange
         // dummy data that we need to do the test
         $expense = Expense::factory()->make()->toArray();
-
         //A - Action
         $response = $this->post('/api/add-expense', $expense);
 
@@ -36,7 +37,7 @@ final class AddExpenseTest extends TestCase
         $expense = Expense::factory()->make([
             "expense_amount" => 0,
         ])->toArray();
-        
+
         // Action
         $response = $this->post('/api/add-expense', $expense);
 
