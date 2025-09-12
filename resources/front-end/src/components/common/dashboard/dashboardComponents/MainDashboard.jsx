@@ -1,135 +1,92 @@
-import React from 'react';
+import React from "react";
+import {
+    ResponsiveContainer,
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Legend,
+    CartesianGrid,
+} from "recharts";
+
+const data = [
+    { month: "Jan", income: 4000, expense: 2400 },
+    { month: "Feb", income: 3000, expense: 1398 },
+    { month: "Mar", income: 2000, expense: 9800 },
+    { month: "Apr", income: 2780, expense: 3908 },
+    { month: "May", income: 1890, expense: 4800 },
+    { month: "Jun", income: 2390, expense: 3800 },
+    { month: "Jul", income: 3490, expense: 4300 },
+];
 
 const MainDashboard = () => {
     return (
-        <div>
-            <div className="p-4 sm:ml-64">
-                <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-                    <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p className="text-2xl text-gray-400 dark:text-gray-500">
-                            <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p className="text-2xl text-gray-400 dark:text-gray-500">
-                            <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                 fill="none"
-                                 viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="M9 1v16M1 9h16"/>
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
+        <div className="p-4 sm:ml-64">
+            {/* Cards Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="block p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Monthly Income
+                    </h5>
+                    <p className="font-bold text-gray-700 dark:text-gray-400">
+                        Rs. 20,000
+                    </p>
+                </div>
+                <div className="block p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Monthly Expense
+                    </h5>
+                    <p className="font-bold text-gray-700 dark:text-gray-400">
+                        Rs. 20,000
+                    </p>
+                </div>
+                <div className="block p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Monthly Income
+                    </h5>
+                    <p className="font-bold text-gray-700 dark:text-gray-400">
+                        Rs. 20,000
+                    </p>
+                </div>
+                <div className="block p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Monthly Expense
+                    </h5>
+                    <p className="font-bold text-gray-700 dark:text-gray-400">
+                        Rs. 20,000
+                    </p>
+                </div>
+            </div>
+
+            {/* Chart Section */}
+            <div className="max-w-full w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-2">
+                <h3 className="text-xl flex justify-center font-bold mb-4 text-gray-900 dark:text-white">
+                    Monthly Income vs Expense
+                </h3>
+                <div className="flex justify-center">
+                    <ResponsiveContainer
+                        width="80%"
+                        height={350}
+                        barCategoryGap="10%"
+                    >
+                        <BarChart
+                            data={data}
+                            margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="month" stroke="#8884d8" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="income" fill="#4CAF50" barSize={30} />
+                            <Bar
+                                dataKey="expense"
+                                fill="#F44336"
+                                barSize={30}
+                            />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
             </div>
         </div>
